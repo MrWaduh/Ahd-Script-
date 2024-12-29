@@ -1,0 +1,127 @@
+--[[Ahd script roblox]]
+local OrionLib = loadstring(game:HttpGet(('https://pastebin.com/raw/WRUyYTdY')))()
+
+local Window = OrionLib:MakeWindow({Name = "Ahd Auto farm script By Mr_waduh", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+ --[[config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+
+local Tab = Window:MakeTab({
+	Name = "Auto farm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+local Section = Tab:AddSection({
+	Name = "Auto Farm"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+Tab:AddToggle({
+	Name = "Auto farm (Slime)",
+	Default = false,
+	Callback = function(Value)
+   Sigma = Value
+
+--area dmg skill
+while Sigma do wait(0.5)
+local args = {
+    [1] = "SlimeAttack3",
+    [2] = Vector3.new(2631.27880859375, 14218.7109375, 3401.878662109375)
+}
+
+game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RE/CombatEvent"):FireServer(unpack(args))
+
+wait(3)
+local args = {
+    [1] = "SlimeAttack5",
+    [2] = Vector3.new(2631.27880859375, 14218.7109375, 3401.878662109375),
+    [3] = Vector3.new(-0.9055094718933105, 0.4159926474094391, 0.08368226140737534)
+}
+
+game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RE/CombatEvent"):FireServer(unpack(args))
+
+
+local args = {
+    [1] = "SlimeAttack2",
+    [2] = Vector3.new(2631.27880859375, 14218.7109375, 3401.878662109375)
+}
+
+game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RE/CombatEvent"):FireServer(unpack(args))
+
+
+local args = {
+    [1] = "SlimeAttack1",
+    [2] = Vector3.new(2630.700439453125, 14220.31640625, 3399.960693359375),
+    [3] = Vector3.new(2628.771484375, 14193.7080078125, 3407.87158203125)
+}
+
+game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RE/CombatEvent"):FireServer(unpack(args))
+
+
+local args = {
+    [1] = "GetAscendantQuest",
+    [2] = 18
+}
+
+game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RE/Quest"):FireServer(unpack(args))
+
+
+local args = {
+    [1] = "Authority",
+    [2] = 10000
+}
+
+game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RE/UpgradeAscendantStat"):FireServer(unpack(args))
+
+--awaken
+ local args = {
+    [1] = "SlimeAttack6"
+}
+
+game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RE/CombatEvent"):FireServer(unpack(args))
+end
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
+
+
+Tab:AddButton({
+	Name = "Rebirth",
+	Callback = function()
+         game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RE/AscendantRebirth"):FireServer()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Upgrade stats",
+	Callback = function()
+         local args = {
+    [1] = "Authority",
+    [2] = 69696969
+}
+game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RE/UpgradeAscendantStat"):FireServer(unpack(args))
+  	end    
+})
+
+OrionLib:Init()
